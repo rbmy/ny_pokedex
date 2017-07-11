@@ -9,6 +9,8 @@ var JSONURL = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/
 function callback(data){
   var cells = data.feed.entry;
   var pokedex = [];
+  var caught1 = 0;
+  var caught2 = 0;
   for (var i = 0; i < cells.length; i++) {
     pokedex[i] = {
       number: cells[i].gsx$number.$t,
@@ -16,19 +18,30 @@ function callback(data){
       generation: cells[i].gsx$generation.$t,
       pokemon: cells[i].gsx$pokemon.$t
     }
+    if (pokedex[i].caught == "TRUE" && pokedex[i].generation == 1) {
+      caught1++;
+    }else if (pokedex[i].caught == "TRUE" && pokedex[i].generation == 2) {
+      caught2++;
+    }
   }
+
+  var total = caught1 + caught2;
+
+  var pokelist = document.getElementById('pokelist')
+  var count = document.getElementById('count')
+  count.innerHTML = "Caught: "+total;
+
+
   for (var i = 0; i < pokedex.length; i++) {
     var elem = document.createElement("img");
       elem.setAttribute("src", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+pokedex[i].number+".png");
       elem.setAttribute("alt", pokedex[i].pokemon);
 
-    var pokelist = document.getElementById('pokelist')
-
     var entry = document.createElement('div');
       entry.className = 'poke'
       pokelist.appendChild(entry)
       entry.appendChild(elem)
-      entry.innerHTML += "<br>"+pokedex[i].number+": "+pokedex[i].pokemon;
+      entry.innerHTML += "<p>"+pokedex[i].number+": "+pokedex[i].pokemon+"</p>";
 
     if (pokedex[i].caught == "TRUE") {
       entry.style.backgroundColor =  "lightgreen"

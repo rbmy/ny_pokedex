@@ -2,14 +2,17 @@ body{
   font-family: Helvetica, Arial, sans-serif;
   font-size: small;
 }
-h1{
+h1, h2, p{
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 #pokelist{
   display: block;
   width: 700px;
   margin: 0 auto;
+  text-align: center;
 }
 
 div.poke{
@@ -21,4 +24,29 @@ div.poke{
   border: black solid 2px;
   border-radius: 5px;
   margin: 5px;
+}
+
+@media (max-width: 500px){
+  #pokelist{
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+  }
+  div.poke{
+    width: 14%;
+    height: 14%;
+    display: inline-block;
+    text-align: center;
+    background-color: #ffb2b2;
+    border: black solid 2px;
+    border-radius: 2px;
+    margin: 1px;
+  }
+  img{
+    width: 75%;
+  }
+  
+  p{
+    display: none;
+  }
 }
