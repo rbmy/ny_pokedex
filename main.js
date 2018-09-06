@@ -1,10 +1,8 @@
 // ID of the Google Spreadsheet
-var spreadsheetID = "188Cgfk6t5uXRIX8vMw38R3wzmJkbBNERcl40_07FL10";
+var spreadsheetID = "1q0hlfiEuceMXcViSxVd82PGXxL5EkYr4yIG0lnDttQY";
 
 // Make sure it is public or set to Anyone with link can view & publish to web
 var JSONURL = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
-
-//var JSONURL = 'https://spreadsheets.google.com/feeds/list/188Cgfk6t5uXRIX8vMw38R3wzmJkbBNERcl40_07FL10/1/public/basic?alt=json';
 
 function callback(data){
   var cells = data.feed.entry;
