@@ -2,7 +2,7 @@ body{
   font-family: Helvetica, Arial, sans-serif;
   font-size: small;
 }
-h1, h2, p{
+h1, h2, h3, p{
   text-align: center;
   margin: 0;
   padding: 0;
