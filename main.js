@@ -1,8 +1,11 @@
 // ID of the Google Spreadsheet
 var spreadsheetID = "1q0hlfiEuceMXcViSxVd82PGXxL5EkYr4yIG0lnDttQY";
+var myAuthKey = "AIzaSyBkq-XscNcI21z--NnTnVTK0UMtaHzRHYQ";
+var sheetNum = 1;
 
 // Make sure it is public or set to Anyone with link can view & publish to web
-var JSONURL = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/od6/public/values?alt=json";
+var sheetMetaDataURL = "https://sheets.googleapis.com/v4/spreadsheets/" + spreadsheetID + "?includeGridData=false&key=" + myAuthKey;
+var sheetContent = "https://sheets.googleapis.com/v4/spreadsheets/"+spreadSheetID+"/values/Sheet" + sheetNum + "?key=" + myAuthKey;
 
 function callback(data){
   var cells = data.feed.entry;
